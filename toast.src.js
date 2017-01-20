@@ -46,15 +46,14 @@ function displayToast(tst) {
 
         fadeOutElement(toast);
 
+        if (toasts.length != 0) {
+            displayToast(toasts.pop());
+        } else {
+            displaying = false;
+        };
+
         toast.addEventListener("animationend", function() {
-            
             toast.remove();
-            
-            if (toasts.length != 0) {
-                displayToast(toasts.pop());
-            } else {
-                displaying = false;
-            };
         });
 
     }, tst.getLength());
